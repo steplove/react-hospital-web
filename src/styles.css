@@ -1,0 +1,34 @@
+
+  .video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .video-background video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .video-background .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black;
+  }
+  .blur-video {
+    filter: blur(4px); /* ปรับค่าตามที่คุณต้องการ */
+  }
+  .imgsbr {
+    width: 100px; /* กำหนดความกว้างเป็น 100px */
+    height: auto; /* กำหนดความสูงอัตโนมัติเพื่อรักษาสัดส่วน */
+  }
+  

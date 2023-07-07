@@ -1,0 +1,14 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+  align-items: center; /* จัดกึ่งกลางแนวตั้ง */
+  justify-content: center; /* จัดกึ่งกลางแนวนอน */
+  gap: 10px;
+  margin-top: 10px;
+  }
+  .grid-item {
+
+    display: flex;
+    align-items: center; /* จัดกึ่งกลางแนวตั้ง */
+    gap: 10px;
+  }
