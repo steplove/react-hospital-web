@@ -31,8 +31,8 @@ function NavBar() {
           <Nav.Link as={Link} class="w3-bar-item w3-button" to="/location">
             Location
           </Nav.Link>
-          <Nav.Link as={Link} class="w3-bar-item w3-button" to="/event">
-            Event
+          <Nav.Link as={Link} class="w3-bar-item w3-button" to="/addproduct">
+          AddProduct
           </Nav.Link>
           <Nav.Link as={Link} class="w3-bar-item w3-button" to="/contact">
             Contact

@@ -1,48 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { Container, Card, Button, Row } from "react-bootstrap";
-import imageCard from "../images/package1.jpg";
 const CardComponent = () => {
-  const [users, setUsers] = useState([]);
-
-  const fetchUserData = () => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setUsers(data);
-      });
-  };
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetchUserData();
+    fetch("http://localhost:3000/api/readProduct")
+      .then((response) => response.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error(error));
   }, []);
 
   return (
     <>
       <Container>
         <Row xs="auto" sm="auto" ms="auto" lg="auto" xl="auto">
-          {users &&
-            users.length > 0 &&
-            users.map((user) => (
-              <Card key={user.id} style={{ width: "18rem" }}>
+          {products &&
+            products.length > 0 &&
+            products.map((product) => (
+              <Card key={product.id} style={{ width: "18rem" }}>
                 <Card.Img
                   variant="top"
-                  src={imageCard}
+                  src={`http://localhost:3000/${product.filepath}`} // อัปเดตการเรียกใช้ URL รูปภาพ
                   style={{ width: "285px", height: "180px" }}
                 />
                 <Card.Body>
-                  <Card.Title>รหัสสินค้า: {user.id}</Card.Title>
+                  <Card.Title>ชื่อรายการ: {product.Pname}</Card.Title>{" "}
+                  {/* แก้ไขการแสดงชื่อรายการ */}
                   <Card.Text>
-                    ราคา: {user.total} บาท
+                    ราคา: {product.Pprice} บาท {/* แก้ไขการแสดงราคา */}
                     <br />
-                    ราคาที่ลด: {user.discountedPrice} บาท
                   </Card.Text>
                   <Button variant="primary">รายละเอียด</Button>
                 </Card.Body>
               </Card>
             ))}
-            
         </Row>
       </Container>
     </>

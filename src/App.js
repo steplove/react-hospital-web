@@ -5,7 +5,7 @@ import Home from "./screens/Home";
 import Gallery from "./screens/Gallery";
 import About from "./screens/About";
 import Location from "./screens/Location";
-import Event from "./screens/Event";
+import AddProduct from "./screens/AddProduct";
 import Contact from "./screens/Contact";
 import NavBar from "./components/navBar";
 import Card from "./components/CardComponent";
@@ -22,7 +22,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/about" element={<About />} />
         <Route path="/location" element={<Location />} />
-        <Route path="/event" element={<Event />} />
+        <Route path="/addproduct" element={<AddProduct />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/card" element={<Card />} />
       </Routes>
