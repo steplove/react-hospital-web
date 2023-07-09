@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import NavBar from "../components/navBar";
 import { Card, InputGroup, Form, Button } from "react-bootstrap";
 import { FileUploader } from "react-drag-drop-files";
 const AddProduct = () => {
@@ -69,7 +70,9 @@ const AddProduct = () => {
 
   console.log(setTypeProducts);
   return (
+  
     <>
+      <NavBar />
       <Card>
         <Card.Body>
           <Card.Title>เพิ่มรายการอาหาร</Card.Title>

@@ -1,9 +1,9 @@
 import React from 'react'
-
+import NavBar from "../components/navBar";
 function Location() {
   return (
     <>
-    <div>Location</div>
+    <NavBar />
   </>
   
   )

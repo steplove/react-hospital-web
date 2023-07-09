@@ -1,12 +1,13 @@
 import React from "react";
 import "./gallery.css";
-import logo from "../images/DSC_3422.jpg";
-import logo1 from "../images/DJI_0805_0.jpg";
-import logo2 from "../images/DSC_3378.jpg";
-
+// import logo from "../images/DSC_3422.jpg";
+// import logo1 from "../images/DJI_0805_0.jpg";
+// import logo2 from "../images/DSC_3378.jpg";
+import NavBar from "../components/navBar";
 function Gallery() {
   return (
-    <div className="container">
+    <>  <NavBar />
+    {/* <div className="container">
       <div className="col-12">
         <div class="grid-container">
           <div class="grid-item">
@@ -76,7 +77,8 @@ function Gallery() {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
+    </>
   );
 }
 
