@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Card, Button, Row, Form } from "react-bootstrap";
+import { Container, Card, Row, Form } from "react-bootstrap";
 
 const CardComponent = () => {
   const [products, setProducts] = useState([]);
@@ -52,11 +52,11 @@ const CardComponent = () => {
           {products &&
             products.length > 0 &&
             products.map((product) => (
-              <Card key={product.id} style={{ width: "18rem" }}>
+              <Card key={product.id} style={{ width: "18rem" , margin:"10px" }}>
                 <Card.Img
                   variant="top"
                   src={`http://localhost:3000/${product.filepath}`}
-                  style={{ width: "285px", height: "180px" }}
+                  style={{ width: "255px", height: "180px"}}
                 />
                 <Card.Body>
                   <Card.Title>ชื่อรายการ: {product.Pname}</Card.Title>
@@ -66,7 +66,6 @@ const CardComponent = () => {
                   </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                  <Button variant="primary">รายละเอียด</Button>
                   <Form>
                     <Form.Check
                       type="switch"

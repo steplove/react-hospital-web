@@ -4,6 +4,12 @@ import { Navbar, Nav } from "react-bootstrap";
 import "./navbar.css";
 
 function NavBar() {
+  const handLogout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    window.location = "/login";
+  };
+
   return (
     <Navbar
       className="navbar-transparent"
@@ -22,20 +28,16 @@ function NavBar() {
           <Nav.Link as={Link} class="w3-bar-item w3-button" to="/Home">
             Home
           </Nav.Link>
-          <Nav.Link as={Link} class="w3-bar-item w3-button" to="/gallery">
-            Gallery
+          <Nav.Link as={Link} class="w3-bar-item w3-button" to="/ManageProduct">
+            ManageProduct
           </Nav.Link>
-          <Nav.Link as={Link} class="w3-bar-item w3-button" to="/about">
-            About
-          </Nav.Link>
-          <Nav.Link as={Link} class="w3-bar-item w3-button" to="/location">
-            Location
-          </Nav.Link>
-          <Nav.Link as={Link} class="w3-bar-item w3-button" to="/addproduct">
-          AddProduct
-          </Nav.Link>
-          <Nav.Link as={Link} class="w3-bar-item w3-button" to="/contact">
-            Contact
+          <Nav.Link
+            as={Link}
+            onClick={handLogout}
+            class="w3-bar-item w3-button"
+            to="/login"
+          >
+            Logout
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>

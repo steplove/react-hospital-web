@@ -27,7 +27,7 @@ function Main() {
         <Container className="d-flex align-items-center">
           <Col sm="auto" md="auto" lg="auto" className="mx-auto text-center">
             <div className="d-flex justify-content-center mt-5">
-              <Link to="/gallery">
+              <Link to="/login">
                 <Button variant="info">เข้าสู่หน้าเว็บไซต์</Button>
               </Link>
             </div>
