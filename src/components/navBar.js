@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import "./navbar.css";
-
+import "../App.css";
 function NavBar() {
   const handLogout = (e) => {
     e.preventDefault();
@@ -12,7 +12,7 @@ function NavBar() {
 
   return (
     <Navbar
-      className="navbar-transparent"
+      className="navbar-transparent font"
       class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off"
       style={{ zIndex: 1 }}
     >
@@ -26,7 +26,7 @@ function NavBar() {
             Main
           </Nav.Link>
           <Nav.Link as={Link} class="w3-bar-item w3-button" to="/Home">
-            Home
+            รายการ 
           </Nav.Link>
           <Nav.Link as={Link} class="w3-bar-item w3-button" to="/ManageProduct">
             ManageProduct

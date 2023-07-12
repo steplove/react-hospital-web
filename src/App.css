@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+.font{
+  font-family: 'Noto Sans Thai', sans-serif;
+}
+.font2{
+  font-family: 'Fasthand', cursive;
+  font-size: 80px;
+  color: rgb(231, 231, 231);
+
+}

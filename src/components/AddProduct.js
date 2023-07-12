@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, InputGroup, Form, Button, Modal } from "react-bootstrap";
 import { FileUploader } from "react-drag-drop-files";
+import "../App.css";
 const AddProduct = () => {
   //========================= drag drop =======================//
   const [file, setFile] = useState(null);
@@ -74,14 +75,14 @@ const AddProduct = () => {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        เพิ่มรายการ
+        <div className="font">เพิ่มรายการ </div>
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>เพิ่มรายการ</Modal.Title>
+          <Modal.Title className="font">เพิ่มรายการ</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Card>
+          <Card className="font">
             <Card.Body>
               <Card.Title>เพิ่มรายการอาหาร</Card.Title>
               <InputGroup>
@@ -149,7 +150,7 @@ const AddProduct = () => {
             </Card.Body>
           </Card>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className="font">
           <Button variant="success" onClick={handleAddProduct}>
             เพิ่มรายการ
           </Button>{" "}

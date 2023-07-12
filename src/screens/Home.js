@@ -33,12 +33,6 @@ function Home() {
     <>
       <NavBar />
       <Container>
-        <br />
-      <div style={{marginLeft:"10px"}}>
-        <AddProduct />
-        </div>
-        <br />
-        <CardComponent />
       </Container>
     </>
   );

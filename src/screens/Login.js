@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,6 +12,8 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Modal } from "react-bootstrap";
+import { BsFillExclamationCircleFill, BsCheckCircleFill } from "react-icons/bs";
 function Copyright(props) {
   return (
     <Typography
@@ -44,22 +46,55 @@ export default function Login() {
       headers: {
         "Content-Type": "application/json",
       },
-      body:JSON.stringify(jsonData),
+      body: JSON.stringify(jsonData),
     })
-    .then(response => response.json())
-    .then(data => {
-      if (data.status === 'ok'){
-        alert('login Success')
-        localStorage.setItem('token',data.token)
-        window.location = '/home'
-      }else{
-        alert('login failed')
-      }
-    })
-    .catch((error) =>{
-      console.log('Error' ,error);
-    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === "ok") {
+          showAlert("success");
+          localStorage.setItem("token", data.token);
+          setTimeout(() => {
+            window.location = "/home";
+          }, 1000); // รอเวลา 3 วินาทีก่อนเปลี่ยนเส้นทางไปยัง "/home"
+        } else {
+          showAlert("error");
+        }
+      })
+      .catch((error) => {
+        console.log("Error", error);
+      });
   };
+
+  const [show, setShow] = useState(false);
+  const [alertType, setAlertType] = useState("");
+
+  const handleClose = () => {
+    setShow(false);
+    setAlertType("");
+  };
+  const handleShow = (type) => {
+    setShow(true);
+    setAlertType(type);
+    // กำหนดเวลาให้ Modal หายไปเมื่อเวลาผ่านไป 3 วินาที
+    setTimeout(() => {
+      handleClose();
+    }, 3000);
+  };
+
+  const showAlert = (type) => {
+    handleShow(type);
+  };
+
+  const getIcon = () => {
+    if (alertType === "error") {
+      return <BsFillExclamationCircleFill color="red" size={54} />;
+    } else if (alertType === "success") {
+      return <BsCheckCircleFill color="green" size={64} />;
+    } else {
+      return null;
+    }
+  };
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
@@ -152,6 +187,17 @@ export default function Login() {
           </Box>
         </Grid>
       </Grid>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Body>
+          <p>Login {alertType}</p>
+          {getIcon()}{" "}
+          {alertType === "error"
+            ? "Error"
+            : alertType === "success"
+            ? "Success"
+            : ""}
+        </Modal.Body>
+      </Modal>
     </ThemeProvider>
   );
 }

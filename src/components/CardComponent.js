@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Card, Row, Form } from "react-bootstrap";
-
+import "../App.css";
 const CardComponent = () => {
   const [products, setProducts] = useState([]);
   const [isCheckedMap, setIsCheckedMap] = useState({});
@@ -47,7 +47,7 @@ const CardComponent = () => {
 
   return (
     <>
-      <Container>
+      <Container className="font">
         <Row xs="auto" sm="auto" ms="auto" lg="auto" xl="auto">
           {products &&
             products.length > 0 &&
